@@ -1,0 +1,24 @@
+{
+	"name": "immersive-render",
+	"title": "Immersive Render",
+	"description": "<p>A module that plays sound files upon rendering entity sheets. <a href='https://ko-fi.com/salieric'>Please consider donating.</a> </p>",
+	"minimumCoreVersion": "9.249",
+	"compatibleCoreVersion": "9.269",
+	"version": "0.0.0",
+	"author": "SalieriC",
+	"dependencies": [],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"systems": [],
+	"esmodules": ["./scripts/init.js"],
+	"scripts": [],
+	"packs": [],
+	"url": "",
+	"manifest": "",
+	"download": ""
+}

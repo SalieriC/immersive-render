@@ -9,11 +9,17 @@ export class api {
     // Setting symbols globally exposed.
     static globals() {
         globalThis['ir'] = {
-            foo: api._foo,
+            play_sfx: api._play_sfx,
         }
     }
 
-    static async _foo() {
-        console.log(game.i18n.localize("IR.foo"))
+    static async _play_sfx(sfx, volume, playForAll = false) {
+        if (!sfx) {
+            console.error(game.i18n.localize("IR.missingSoundFile"))
+        }
+        if (!volume) {
+            volume = game.settings.get('ir', 'defaultVolume')
+        }
+        AudioHelper.play({ src: `${sfx}`, volume: volume, loop: false }, playForAll);
     }
 }

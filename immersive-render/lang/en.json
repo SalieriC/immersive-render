@@ -1,5 +1,6 @@
 {
     "IR.defaultVolumeName": "Default Volume",
-    "IR.defaultVolumeHint": "This is the default volume set for the sound effects (sfx). This can be customised when setting up the sfx folder for the selected entity."
+    "IR.defaultVolumeHint": "This is the default volume set for the sound effects (sfx). This can be customised when setting up the sfx folder for the selected entity.",
+    "IR.missingSoundFile": "No sound file provided. The file needs to be of type OGG; MP3; FLAC; WEBM or WAV."
 }
   

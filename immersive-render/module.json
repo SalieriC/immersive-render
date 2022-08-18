@@ -24,7 +24,7 @@
 	"esmodules": ["./scripts/init.js"],
 	"scripts": [],
 	"packs": [],
-	"url": "",
-	"manifest": "",
+	"url": "https://github.com/SalieriC/immersive-render",
+	"manifest": "https://raw.githubusercontent.com/SalieriC/immersive-render/main/immersive-render/module.json?token=GHSAT0AAAAAABKZ3LUPTFWIXWFSPWT2PISMYX6RU6A",
 	"download": ""
 }

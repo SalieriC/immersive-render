@@ -1,4 +1,5 @@
 {
-    "IR.foo": "Foo"
-  }
+    "IR.defaultVolumeName": "Default Volume",
+    "IR.defaultVolumeHint": "This is the default volume set for the sound effects (sfx). This can be customised when setting up the sfx folder for the selected entity."
+}
   

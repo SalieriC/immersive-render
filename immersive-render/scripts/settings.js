@@ -1,5 +1,4 @@
 export function register_settings() {
-    console.warn("Hello World!")
     // Default Volume
     game.settings.register('immersive-render', 'defaultVolume', {
         name: "IR.defaultVolumeName",

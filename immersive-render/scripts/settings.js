@@ -14,7 +14,7 @@ export function register_settings() {
         config: true
     });
     // SFX played when a new chat message is created.
-    gamae.settings.register('immersive-render', 'chatMessageSfx', {
+    game.settings.register('immersive-render', 'chatMessageSfx', {
         name: game.i18n.localize("IR.chatMessageSfxName"),
         hint: game.i18n.localize("IR.chatMessageSfxHint"),
         type: window.Azzu.SettingsTypes.FilePickerAudio,

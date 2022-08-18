@@ -1,6 +1,8 @@
 {
-    "IR.defaultVolumeName": "Default Volume",
+    "IR.defaultVolumeName": "Default Volume:",
     "IR.defaultVolumeHint": "This is the default volume set for the sound effects (sfx). This can be customised when setting up the sfx folder for the selected entity. '1' is 100% (the default). Be careful with higher numbers as those could cause problems like audio artifacts or clipping.",
+    "IR.chatMessageSfxName": "New Chat Message Notification:",
+    "IR.chatMessageSfxHint": "If you select a sound file here, it will be played when a new chat message is created. You should choose an audio file that is very short.",
     "IR.error-missingSoundFile": "No sound file provided. The file needs to be of type OGG; MP3; FLAC; WEBM or WAV.",
     "IR.error-missingFolderPath": "No folder path provided. The folder path needs to be relative to the data folder; i.e. 'assets/sounds/book_open'.",
     "IR.error-flagsNotSet": "Couldn't save options for {entityName}, see the console for details.",

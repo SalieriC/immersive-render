@@ -65,3 +65,10 @@ Hooks.on('closeItemSheet', async (entitySheet) => {
         ir.play_random_audio(currClosePath, currVolume, false)
     }
 })
+
+Hooks.on('createChatMessage', (entity) => {
+    let chatMessageSfx = game.settings.get('immersive-render', 'chatMessageSfx')
+    if (chatMessageSfx) {
+        ir.play_audio(chatMessageSfx, -1, true)
+    }
+})

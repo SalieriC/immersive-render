@@ -4,7 +4,7 @@ export function register_context(type, entryOptions) {
         icon: '<i class="fas fa-book-reader"></i>',
         callback: li => {
             const entity = game[type].get(li.data("documentId"));
-            return ir.configureEntity(entity)
+            return ir.configure_entity(entity)
         },
         condition: li => {
             if (!game.user.isGM) return false;

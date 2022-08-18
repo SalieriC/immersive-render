@@ -12,7 +12,8 @@ export class api {
             play_audio: api._play_audio,
             get_audio: api._get_audio_files_from_folder,
             randomise_file: api._randomise_file,
-            play_random_audio: api._play_random_audio
+            play_random_audio: api._play_random_audio,
+            configure_entity: api._configure_entity
         }
     }
 
@@ -55,5 +56,9 @@ export class api {
         let files = await ir.get_audio(pathToFolder)
         let randomAudioFile = await ir.randomise_file(files)
         ir.play_audio(randomAudioFile, volume, playForAll)
+    }
+
+    static async _configure_entity(entity) {
+        console.warn(entity)
     }
 }

@@ -133,6 +133,7 @@ export class api {
             render: listener
         }).render(true);
 
+        // Thanks Freeze#2689 for the help on creating the file pickers.
         function listener(html) {
             html.find(".picker-button-open").on("click", function(){
                 new FilePicker({

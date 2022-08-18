@@ -19,3 +19,49 @@ Hooks.on("getItemDirectoryEntryContext", (html, entryOptions) => {
 Hooks.on("getJournalDirectoryEntryContext", (html, entryOptions) => {
     register_context("journal", entryOptions)
 });
+
+// Hooks for playing SFX:
+Hooks.on('renderJournalSheet', async (entitySheet, _, __) => {
+    let entity = entitySheet.object
+    let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
+    if (currOpenPath) {
+        ir.play_random_audio(currOpenPath, currVolume, false)
+    }
+})
+Hooks.on('closeJournalSheet', async (entitySheet, _, __) => {
+    let entity = entitySheet.object
+    let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
+    if (currClosePath) {
+        ir.play_random_audio(currClosePath, currVolume, false)
+    }
+})
+
+Hooks.on('renderCharacterSheet', async (entitySheet) => {
+    let entity = entitySheet.object
+    let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
+    if (currOpenPath) {
+        ir.play_random_audio(currOpenPath, currVolume, false)
+    }
+})
+Hooks.on('closeCharacterSheet', async (entitySheet) => {
+    let entity = entitySheet.object
+    let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
+    if (currClosePath) {
+        ir.play_random_audio(currClosePath, currVolume, false)
+    }
+})
+
+Hooks.on('renderItemSheet', async (entitySheet) => {
+    let entity = entitySheet.object
+    let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
+    if (currOpenPath) {
+        ir.play_random_audio(currOpenPath, currVolume, false)
+    }
+})
+Hooks.on('closeItemSheet', async (entitySheet) => {
+    let entity = entitySheet.object
+    let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
+    if (currClosePath) {
+        ir.play_random_audio(currClosePath, currVolume, false)
+    }
+})

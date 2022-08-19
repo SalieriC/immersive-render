@@ -4,7 +4,7 @@
 	"description": "<p>A module that plays sound files upon rendering entity sheets. <a href='https://ko-fi.com/salieric'>Please consider donating.</a> </p>",
 	"minimumCoreVersion": "9.249",
 	"compatibleCoreVersion": "9.269",
-	"version": "0.0.0",
+	"version": "0.1.0",
 	"author": "SalieriC",
 	"dependencies": [
         {

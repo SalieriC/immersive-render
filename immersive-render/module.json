@@ -7,12 +7,12 @@
 	"version": "0.1.0",
 	"author": "SalieriC",
 	"dependencies": [
-        {
+		{
 			"type": "module",
 			"name": "settings-extender",
 			"manifest": "https://gitlab.com/foundry-azzurite/settings-extender/-/jobs/artifacts/master/raw/dist/settings-extender/module.json?job=build"
 		}
-    ],
+	],
 	"languages": [
 		{
 			"lang": "en",
@@ -21,9 +21,16 @@
 		}
 	],
 	"systems": [],
-	"esmodules": ["./scripts/init.js"],
+	"esmodules": [
+		"./scripts/init.js"
+	],
 	"scripts": [],
 	"packs": [],
+	"flags": {
+		"fvttdevleague": {
+			"package-jam": 2022
+		}
+	},
 	"url": "https://github.com/SalieriC/immersive-render",
 	"manifest": "https://raw.githubusercontent.com/SalieriC/immersive-render/main/immersive-render/module.json?token=GHSAT0AAAAAABKZ3LUPTFWIXWFSPWT2PISMYX6RU6A",
 	"download": "https://github.com/SalieriC/immersive-render/blob/main/immersive-render.zip?raw=true"

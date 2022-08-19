@@ -1,6 +1,6 @@
 # Immersive Render (IR)
 A FVTT module that plays sound effects on rendering entity sheets.  
-This creates a nice immersion feeling when - for example - opening a Journal that has the image of a book and an audio file is played that sounds like opening a book is opened. (This was the main reason I created this module but decided that actors and items could fit as well. Imagine opening your character sheet in a Fallout kind of setting and a PipBoy sound effect plays for example.)  
+This creates a nice immersion feeling when - for example - opening a Journal that has the image of a book and an audio file is played that sounds like a book is opened. (This was the main reason I created this module but decided that actors and items could fit as well. Imagine opening your character sheet in a Fallout kind of setting and a PipBoy sound effect plays for example.)  
 If you want to support me you can do so on my Ko-fi:  
 [![Ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/salieric)  
 This is one way to show me that my module is actually used and well-received and also helps me out more than you can imagine.  

@@ -1,4 +1,13 @@
 export function register_settings() {
+    // Intro Read
+    game.settings.register('immersive-render', 'confirm00', {
+        name: "Intro was read.",
+        hint: "This confirms the GM has read the intro.",
+        type: Boolean,
+        default: false,
+        scope: 'client',
+        config: false,
+    });
     // Default Volume.
     game.settings.register('immersive-render', 'defaultVolume', {
         name: "IR.defaultVolumeName",

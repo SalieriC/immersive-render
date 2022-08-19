@@ -26,9 +26,10 @@ export function register_settings() {
     game.settings.register('immersive-render', 'chatMessageSfx', {
         name: game.i18n.localize("IR.chatMessageSfxName"),
         hint: game.i18n.localize("IR.chatMessageSfxHint"),
-        type: window.Azzu.SettingsTypes.FilePickerAudio,
-        default: '',
         scope: 'world',
         config: true,
+        default: '',
+        type: String,
+        filePicker: 'audio',
     });
 }

@@ -16,7 +16,8 @@ export class api {
             get_flags: api._get_ir_flags,
             set_flags: api._set_ir_flags,
             unset_flags: api._unset_ir_flags,
-            configure_entity: api._configure_entity
+            configure_entity: api._configure_entity,
+            configure_folder: api._configure_folder
         }
     }
 
@@ -68,7 +69,7 @@ export class api {
         return { currOpenPath, currClosePath, currVolume }
     }
 
-    static async _set_ir_flags(entity, openFolder, closeFolder, volume = -1) {
+    static async _set_ir_flags(entity, openFolder, closeFolder, volume = -1, message = true) {
         const DATA = {
             flags: {
                 ["immersive-render"]: {
@@ -80,7 +81,7 @@ export class api {
         }
         try { 
             entity.update(DATA)
-            ui.notifications.notify(game.i18n.format("IR.notification-flagsSet", {entityName: entity.name}))
+            if (message) { ui.notifications.notify(game.i18n.format("IR.notification-flagsSet", {entityName: entity.name})) }
             console.log(`Flags set on ${entity.name}.`, entity)
         }
         catch (err) {
@@ -89,11 +90,11 @@ export class api {
         }
     }
 
-    static async _unset_ir_flags(entity) {
+    static async _unset_ir_flags(entity, message = true) {
         try {
             // I remove the flags completely instead of unsetting them to avoid data clutter:
             entity.update({ "flags.-=immersive-render": null })
-            ui.notifications.notify(game.i18n.format("IR.notification-flagsUnset", {entityName: entity.name}))
+            if (message) { ui.notifications.notify(game.i18n.format("IR.notification-flagsUnset", {entityName: entity.name})) }
             console.log(`Flags removed from ${entity.name}.`, entity)
         }
         catch (err) {
@@ -119,13 +120,65 @@ export class api {
                         const OPEN_FOLDER = String(html.find(`#openFolder`).val())
                         const CLOSE_FOLDER = String(html.find(`#closeFolder`).val())
                         const VOLUME = Number(html.find(`#volume`)[0].value)
-                        await ir.set_flags(entity, OPEN_FOLDER, CLOSE_FOLDER, VOLUME)
+                        const MESSAGE = true
+                        await ir.set_flags(entity, OPEN_FOLDER, CLOSE_FOLDER, VOLUME, true)
                     }
                 },
                 two: {
                     label: `<i class="fas fa-trash"></i> ${game.i18n.localize("IR.dialogue-renderOptionsUnsetFlags")}`,
                     callback: async (_) => {
-                        await ir.unset_flags(entity)
+                        await ir.unset_flags(entity, true)
+                    }
+                },
+            },
+            default: "one",
+            render: listener
+        }).render(true);
+
+        // Thanks Freeze#2689 for the help on creating the file pickers.
+        function listener(html) {
+            html.find(".picker-button-open").on("click", function(){
+                new FilePicker({
+                    type: "folder",
+                    callback: function (path) {
+                      html.find("input[name=folder-path-open]").val(path);
+                }}).render(true);
+            });
+            html.find(".picker-button-close").on("click", function(){
+                new FilePicker({
+                    type: "folder",
+                    callback: function (path) {
+                      html.find("input[name=folder-path-close]").val(path);
+                }}).render(true);
+            });
+        }
+    }
+
+    static async _configure_folder(folder) {
+        new Dialog({
+            title: game.i18n.localize("IR.contextual-renderOptions"),
+            content: game.i18n.localize("IR.dialogue-renderOptionsContentFolder"),
+            buttons: {
+                one: {
+                    label: `<i class="fas fa-check"></i> ${game.i18n.localize("IR.dialogue-renderOptionsSetFlags")}`,
+                    callback: async (html) => {
+                        //const path = html.find("[name=folder-path").val();
+                        const OPEN_FOLDER = String(html.find(`#openFolder`).val())
+                        const CLOSE_FOLDER = String(html.find(`#closeFolder`).val())
+                        const VOLUME = Number(html.find(`#volume`)[0].value)
+                        for (let entity of folder.contents) {
+                            await ir.set_flags(entity, OPEN_FOLDER, CLOSE_FOLDER, VOLUME, false)
+                        }
+                        ui.notifications.notify(game.i18n.format("IR.notification-flagsSetFolder", {folderName: folder.name}))
+                    }
+                },
+                two: {
+                    label: `<i class="fas fa-trash"></i> ${game.i18n.localize("IR.dialogue-renderOptionsUnsetFlags")}`,
+                    callback: async (_) => {
+                        for (let entity of folder.contents) {
+                            await ir.unset_flags(entity, false)
+                        }
+                        ui.notifications.notify(game.i18n.format("IR.notification-flagsUnsetFolder", {folderName: folder.name}))
                     }
                 },
             },

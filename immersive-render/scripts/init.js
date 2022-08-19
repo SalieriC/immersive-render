@@ -1,6 +1,6 @@
 import { api } from './api.js'
 import { register_settings } from './settings.js'
-import { register_context } from './contextual_options.js'
+import { register_context,register_folder_context } from './contextual_options.js'
 
 Hooks.on('setup', api.registerFunctions)
 
@@ -10,7 +10,9 @@ Hooks.on(`ready`, () => {
     console.log('Immersive Render (IR) | Ready')
 })
 
+// Add IR contextual option to entities:
 Hooks.on("getActorDirectoryEntryContext", (html, entryOptions) => {
+    console.warn(entryOptions)
     register_context("actors", entryOptions)
 });
 Hooks.on("getItemDirectoryEntryContext", (html, entryOptions) => {
@@ -18,6 +20,18 @@ Hooks.on("getItemDirectoryEntryContext", (html, entryOptions) => {
 });
 Hooks.on("getJournalDirectoryEntryContext", (html, entryOptions) => {
     register_context("journal", entryOptions)
+});
+
+// Add option to folders for batch editing:
+Hooks.on("getActorDirectoryFolderContext", (html, entryOptions) => {
+    console.warn(entryOptions)
+    register_folder_context(entryOptions)
+});
+Hooks.on("getItemDirectoryFolderContext", (html, entryOptions) => {
+    register_folder_context(entryOptions)
+});
+Hooks.on("getJournalDirectoryFolderContext", (html, entryOptions) => {
+    register_folder_context(entryOptions)
 });
 
 // Hooks for playing SFX:

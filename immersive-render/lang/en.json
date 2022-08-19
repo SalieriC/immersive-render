@@ -9,9 +9,12 @@
     "IR.error-flagsNotUnset": "Couldn't delete options for {entityName}, see the console for details.",
     "IR.contextual-renderOptions": "[IR] Render Options",
     "IR.dialogue-renderOptionsContent": "<p>Here you can set a folder with sound effects for opening and closing the sheet.</p><p>A random sound of the relevant folder will be picked to play.</p><p>You can also set the volume to '-1', the default volume in the IR settings will be used in this case.</p><form><div class='form-group'><label>Open SFX Folder:</label><div class='form-fields'><input name='folder-path-open' id='openFolder' value='{openFolder}'><button class='picker-button-open'><i class='fas fa-file-import fa-fw'></i></button></div></div><div class='form-group'><label>Close SFX Folder:</label><div class='form-fields'><input name='folder-path-close' id='closeFolder' value='{closeFolder}'><button class='picker-button-close'><i class='fas fa-file-import fa-fw'></i></button></div></div><div class='form-group'><label>Volume:</label><div class='form-fields'><input type='number' id='volume' value='{volume}' min='-1' max='10' /></div></div></form>",
+    "IR.dialogue-renderOptionsContentFolder": "<p>Here you can set a folder with sound effects for opening and closing the sheet of <strong>all the entities</strong>.</p><p>A random sound of the relevant folder will be picked to play.</p><p>You can also set the volume to '-1', the default volume in the IR settings will be used in this case.</p><form><div class='form-group'><label>Open SFX Folder:</label><div class='form-fields'><input name='folder-path-open' id='openFolder'><button class='picker-button-open'><i class='fas fa-file-import fa-fw'></i></button></div></div><div class='form-group'><label>Close SFX Folder:</label><div class='form-fields'><input name='folder-path-close' id='closeFolder'><button class='picker-button-close'><i class='fas fa-file-import fa-fw'></i></button></div></div><div class='form-group'><label>Volume:</label><div class='form-fields'><input type='number' id='volume' value='-1' min='-1' max='10' /></div></div></form>",
     "IR.dialogue-renderOptionsSetFlags": "Apply",
     "IR.dialogue-renderOptionsUnsetFlags": "Remove current",
     "IR.notification-flagsSet": "Options saved on {entityName}.",
-    "IR.notification-flagsUnset": "Options removed on {entityName}."
+    "IR.notification-flagsUnset": "Options removed on {entityName}.",
+    "IR.notification-flagsSetFolder": "Options saved on entities in folder {folderName}.",
+    "IR.notification-flagsUnsetFolder": "Options removed on entities in {folderName}."
 }
   

@@ -17,4 +17,4 @@ To set up an Actor, Item or Journal to be recognised by IR and play audio when t
 You can also batch edit entities. For this just open the contextual menu of a folder in the sidebar. The changes will be applied to each entity in that folder (but not those in sub-folders).  
 
 ## Foundry Core Compatibility
-I've decided to release this as v9 compatible for now due to the delay of the v10 stable release. This way anyone can profit from it just now. A v10 compatible version shouldn't be too complicated and I will update it once v10 sees a stable release.
+A v10 ready branch is available on this repo. Go ahead and grab it if you're on v10 already. It will be publicly released once v10 hits stable.

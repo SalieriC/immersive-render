@@ -28,7 +28,7 @@ export function register_settings() {
         hint: game.i18n.localize("IR.setting-chatMessageSfxHint"),
         scope: 'world',
         config: true,
-        default: '',
+        default: 'sounds/notify.wav',
         type: String,
         filePicker: 'audio',
     });

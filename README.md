@@ -15,3 +15,6 @@ I'm sorry if you only ever have one sound in multiple folders as a result. If yo
 In the module settings you can set a notification sound file for chat messages as well as a default volume. Note that 1 is 100%. You can go as high as 10 but be mindful with it, too high numbers can cause audio artifacts and clipping.  
 To set up an Actor, Item or Journal to be recognised by IR and play audio when they open/close, simply right click on them (opens the contextual menu) and select the IR option. Then you can select a folder for opening audio files, a folder for closing sound files and a volume (to use the default in the settings simply choose `-1`).  
 You can also batch edit entities. For this just open the contextual menu of a folder in the sidebar. The changes will be applied to each entity in that folder (but not those in sub-folders).  
+
+## Foundry Core Compatibility
+IR is fully compatible and tested for version 9 and 10.278 of core Foundry. You should be able to install and use it from both versions.  

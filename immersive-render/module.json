@@ -1,9 +1,10 @@
 {
 	"id": "immersive-render",
+	"name": "immersive-render",
 	"title": "Immersive Render",
 	"description": "<p>A module that plays sound files upon rendering entity sheets. <a href='https://ko-fi.com/salieric'>Please consider donating.</a> </p>",
 	"compatibility": {
-		"minimum": 10,
+		"minimum": 9,
 		"verified": "10"
 	},
 	"version": "0.2.0",

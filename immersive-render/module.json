@@ -5,9 +5,10 @@
 	"description": "<p>A module that plays sound files upon rendering entity sheets. <a href='https://ko-fi.com/salieric'>Please consider donating.</a> </p>",
 	"compatibility": {
 		"minimum": 9,
-		"verified": "10"
+		"verified": "10.278",
+		"maximum": 10
 	},
-	"version": "0.2.0",
+	"version": "1.0.0",
 	"author": "SalieriC",
 	"relationships": {
 		"requires": []

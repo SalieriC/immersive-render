@@ -117,7 +117,7 @@ let timedOut = false
 Hooks.on('createChatMessage', async (entity) => {
     let chatMessageSfx = game.settings.get('immersive-render', 'chatMessageSfx')
     if (chatMessageSfx && timedOut === false) {
-        ir.play_audio(chatMessageSfx, -1, true)
+        ir.play_audio(chatMessageSfx, -1, false)
         timedOut = true
         await wait(game.settings.get('immersive-render', 'timeOut'))
         timedOut = false

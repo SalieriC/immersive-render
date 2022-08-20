@@ -38,8 +38,15 @@ export class api {
             return;
         }
         // Thanks at Zhell#9201 for the code to get files from a folder and the filtering for extensions.
-        let { files } = await FilePicker.browse("data", pathToFolder);
-        files = files.filter(i => i.endsWith(".ogg") || i.endsWith(".mp3") || i.endsWith(".flac") || i.endsWith(".webm") || i.endsWith(".wav"));
+        let browse
+        let files
+        const EXT = [".ogg", ".mp3", ".flac", ".webm", ".wav"]
+        if (pathToFolder.includes("*")) {
+            browse = await FilePicker.browse("data", pathToFolder, {extensions: EXT, wildcard: true});
+        } else {
+            browse = await FilePicker.browse("data", pathToFolder, {extensions: EXT})
+        }
+        files = browse.files
         return files
     }
 
@@ -131,27 +138,8 @@ export class api {
                     }
                 },
             },
-            default: "one",
-            render: listener
-        }).render(true);
-
-        // Thanks Freeze#2689 for the help on creating the file pickers.
-        function listener(html) {
-            html.find(".picker-button-open").on("click", function(){
-                new FilePicker({
-                    type: "folder",
-                    callback: function (path) {
-                      html.find("input[name=folder-path-open]").val(path);
-                }}).render(true);
-            });
-            html.find(".picker-button-close").on("click", function(){
-                new FilePicker({
-                    type: "folder",
-                    callback: function (path) {
-                      html.find("input[name=folder-path-close]").val(path);
-                }}).render(true);
-            });
-        }
+            render: api.listener
+        }, {width: 500}).render(true)
     }
 
     static async _configure_folder(folder) {
@@ -182,26 +170,51 @@ export class api {
                     }
                 },
             },
-            default: "one",
-            render: listener
-        }).render(true);
+            render: api.listener
+        }, {width: 500}).render(true)
+    }
 
-        // Thanks Freeze#2689 for the help on creating the file pickers.
-        function listener(html) {
-            html.find(".picker-button-open").on("click", function(){
-                new FilePicker({
-                    type: "folder",
-                    callback: function (path) {
-                      html.find("input[name=folder-path-open]").val(path);
-                }}).render(true);
-            });
-            html.find(".picker-button-close").on("click", function(){
-                new FilePicker({
-                    type: "folder",
-                    callback: function (path) {
-                      html.find("input[name=folder-path-close]").val(path);
-                }}).render(true);
-            });
-        }
+    // Thanks Freeze#2689 for the help on creating the file pickers.
+    static listener(html) {
+        html.find(".info-button").on("click", function(){
+            new Dialog({
+                title: game.i18n.localize("IR.dialogue-setupInfo"),
+                content: game.i18n.localize("IR.dialogue-setupInfoContent"),
+                buttons: {
+                    one: {
+                        label: `<i class="fas fa-check"></i> ${game.i18n.localize("IR.dialogue-okay")}`,
+                    },
+                },
+                default: "one",
+            }).render(true)
+        });
+        html.find(".picker-button-open").on("click", function(){
+            new FilePicker({
+                type: "audio",
+                callback: function (path) {
+                  html.find("input[name=folder-path-open]").val(path);
+            }}).render(true);
+        });
+        html.find(".picker-button-open-folder").on("click", function(){
+            new FilePicker({
+                type: "folder",
+                callback: function (path) {
+                  html.find("input[name=folder-path-open]").val(path);
+            }}).render(true);
+        });
+        html.find(".picker-button-close").on("click", function(){
+            new FilePicker({
+                type: "audio",
+                callback: function (path) {
+                  html.find("input[name=folder-path-close]").val(path);
+            }}).render(true);
+        });
+        html.find(".picker-button-close-folder").on("click", function(){
+            new FilePicker({
+                type: "folder",
+                callback: function (path) {
+                  html.find("input[name=folder-path-close]").val(path);
+            }}).render(true);
+        });
     }
 }

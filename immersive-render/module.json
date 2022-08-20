@@ -1,18 +1,18 @@
 {
+	"id": "immersive-render",
 	"name": "immersive-render",
 	"title": "Immersive Render",
 	"description": "<p>A module that plays sound files upon rendering entity sheets. <a href='https://ko-fi.com/salieric'>Please consider donating.</a> </p>",
-	"minimumCoreVersion": "9.249",
-	"compatibleCoreVersion": "9.269",
-	"version": "0.1.0",
+	"compatibility": {
+		"minimum": 9,
+		"verified": "10.278",
+		"maximum": 10
+	},
+	"version": "1.0.0",
 	"author": "SalieriC",
-	"dependencies": [
-		{
-			"type": "module",
-			"name": "settings-extender",
-			"manifest": "https://gitlab.com/foundry-azzurite/settings-extender/-/jobs/artifacts/master/raw/dist/settings-extender/module.json?job=build"
-		}
-	],
+	"relationships": {
+		"requires": []
+	},
 	"languages": [
 		{
 			"lang": "en",

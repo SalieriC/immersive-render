@@ -10,8 +10,8 @@ export function register_settings() {
     });
     // Default Volume.
     game.settings.register('immersive-render', 'defaultVolume', {
-        name: "IR.defaultVolumeName",
-        hint: "IR.defaultVolumeHint",
+        name: "IR.setting-defaultVolumeName",
+        hint: "IR.setting-defaultVolumeHint",
         type: Number,
         range: {
             min: 0,
@@ -24,11 +24,21 @@ export function register_settings() {
     });
     // SFX played when a new chat message is created.
     game.settings.register('immersive-render', 'chatMessageSfx', {
-        name: game.i18n.localize("IR.chatMessageSfxName"),
-        hint: game.i18n.localize("IR.chatMessageSfxHint"),
-        type: window.Azzu.SettingsTypes.FilePickerAudio,
-        default: '',
+        name: game.i18n.localize("IR.setting-chatMessageSfxName"),
+        hint: game.i18n.localize("IR.setting-chatMessageSfxHint"),
         scope: 'world',
         config: true,
+        default: 'sounds/notify.wav',
+        type: String,
+        filePicker: 'audio',
+    });
+    // Timeout for chat message notification
+    game.settings.register('immersive-render', 'timeOut', {
+        name: game.i18n.localize("IR.setting-timeOutName"),
+        hint: game.i18n.localize("IR.setting-timeOutHint"),
+        scope: 'world',
+        config: true,
+        default: 2000,
+        type: Number,
     });
 }

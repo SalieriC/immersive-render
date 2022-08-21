@@ -116,11 +116,7 @@ Hooks.on('closeItemSheet', async (entitySheet) => {
 let timedOut = false
 Hooks.on('createChatMessage', async (message) => {
     let chatMessageSfx = game.settings.get('immersive-render', 'chatMessageSfx')
-    console.log(chatMessageSfx)
-    console.log(message)
-    console.log(timedOut)
-    if (chatMessageSfx && timedOut === false && message.data.whisper.length <= 0) {
-        console.log("hello")
+    if (chatMessageSfx && timedOut === false && message.data.whisper.length <= 0 && game.userId != message.data.user) {
         ir.play_audio(chatMessageSfx, -1, false)
         timedOut = true
         await wait(game.settings.get('immersive-render', 'timeOut'))

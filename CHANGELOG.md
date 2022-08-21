@@ -5,9 +5,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+## [1.0.1] - 2022-08-21
+☮️ Peace in the world, or the world in pieces. 🕊️
+### Fixed
+- Chat message notification not playing.
+### Changed
+- Changes to translation strings to reflect recent changes.
+- Chat message notifications won't play for the user who sends them anymore.
+- Added min and compatible core version to the manifest used by FVTT core v9 and earlier to get rid of the warning in v9.
 
 ## [1.0.0] - 2022-08-21
-☮️ Peace in the world, or the world in pieces. 🕊️
 ### Added
 - v10 and v9 backwards compatibility.
 - A way to select a single file instead of a folder.

@@ -2,7 +2,7 @@
     "IR.setting-defaultVolumeName": "Default Volume:",
     "IR.setting-defaultVolumeHint": "This is the default volume set for the audio files played by IR. This can be customised when setting up the file/folder of individual entities (those will overwrite this setting). '1' is 100% (the default). Be careful with higher numbers as those could cause problems like audio artifacts or clipping.",
     "IR.setting-chatMessageSfxName": "New Chat Message Notification:",
-    "IR.setting-chatMessageSfxHint": "If you select a sound file here, it will be played when a new chat message is created. You should choose an audio file that is very short. This will neither change nor affect the default whisper notification sound of core Foundry. The notification is only played when someone else sends it (it is not played for the current user).",
+    "IR.setting-chatMessageSfxHint": "If you select a sound file here, it will be played when a new chat message is created. You should choose an audio file that is very short. This will neither change nor affect the default whisper notification sound of core Foundry. The notification is only played when someone else sends it (it is not played for the current user). Delete the path to disable this feature.",
     "IR.setting-timeOutName": "Chat Notification Timeout",
     "IR.setting-timeOutHint": "A number in miliseconds in which no chat message sound will be played after it was played. This is especially useful when scripts create multiple chat messages. 2000 ms (=2 seconds) is the default.",
     "IR.error-missingSoundFile": "No sound file provided. The file needs to be of type OGG; MP3; FLAC; WEBM or WAV.",

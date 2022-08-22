@@ -38,4 +38,4 @@ export function set_vars_by_system() {
     return { renderJournalSheet, closeJournalSheet, renderActorSheet, closeActorSheet, renderItemSheet, closeItemSheet, createChatMessage }
 }
 
-export const SUPPORTED_SYSTEMS = ["dnd5e", "swade"]
+export const SUPPORTED_SYSTEMS = ["dnd5e", "swade", "worldbuilding"]

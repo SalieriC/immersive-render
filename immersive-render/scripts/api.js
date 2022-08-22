@@ -43,10 +43,14 @@ export class api {
         const EXT = [".ogg", ".mp3", ".flac", ".webm", ".wav"]
         if (pathToFolder.includes("*")) {
             browse = await FilePicker.browse("data", pathToFolder, {extensions: EXT, wildcard: true});
+            files = browse.files
+        } else if (EXT.some(i => pathToFolder.endsWith(i))) {
+            //This checks if an exact audio file is given.
+            files = [pathToFolder]
         } else {
             browse = await FilePicker.browse("data", pathToFolder, {extensions: EXT})
+            files = browse.files
         }
-        files = browse.files
         return files
     }
 

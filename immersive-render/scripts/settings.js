@@ -8,6 +8,15 @@ export function register_settings() {
         scope: 'client',
         config: false,
     });
+    // System Notification
+    game.settings.register('immersive-render', 'confirm01', {
+        name: "System Message was read.",
+        hint: "This confirms the GM has read the system message.",
+        type: Boolean,
+        default: false,
+        scope: 'world',
+        config: false,
+    });
     // Default Volume.
     game.settings.register('immersive-render', 'defaultVolume', {
         name: "IR.setting-defaultVolumeName",

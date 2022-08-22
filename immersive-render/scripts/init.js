@@ -3,6 +3,7 @@ import { register_settings } from './settings.js'
 import { register_context,register_folder_context } from './contextual_options.js'
 import { entity_hooks } from './entity_hooks.js'
 import { set_vars_by_system } from './system_variables.js'
+import { SUPPORTED_SYSTEMS } from "./system_variables.js"
 
 Hooks.on('setup', api.registerFunctions)
 
@@ -36,12 +37,26 @@ Hooks.on(`ready`, () => {
             </form>`*/,
             buttons: {
                 one: {
-                    label: "<i class='fas fa-check'></i> Confirm",
+                    label: `<i class='fas fa-check'></i> ${game.i18n.localize("IR.dialogue-okay")}`,
                     callback: (html) => {
                         let readIt = html.find("#readIt")[0].checked
                         if (readIt === true) {
                             game.settings.set('immersive-render', 'confirm00', true)
                         }
+                    }
+                }
+            },
+        }).render(true);
+    }
+    if (game.user?.isGM && game.settings.get('immersive-render', 'confirm01') === false) {
+        new Dialog({
+            title: game.i18n.localize("IR.dialogue-system"),
+            content: game.i18n.format("IR.dialogue-systemContent", {system: game.system.id, supportLevel: SUPPORTED_SYSTEMS.some(i => game.system.id === i) ? game.i18n.localize("IR.dialogue-systemSupported"): game.i18n.localize("IR.dialogue-systemNotSupported")}),
+            buttons: {
+                one: {
+                    label: `<i class='fas fa-check'></i> ${game.i18n.localize("IR.dialogue-okay")}`,
+                    callback: () => {
+                        game.settings.set('immersive-render', 'confirm01', true)
                     }
                 }
             },

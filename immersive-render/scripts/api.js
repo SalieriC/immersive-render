@@ -1,3 +1,5 @@
+import { SUPPORTED_SYSTEMS } from "./system_variables.js"
+
 export class api {
 
     // Exposing the globnals.
@@ -17,7 +19,8 @@ export class api {
             set_flags: api._set_ir_flags,
             unset_flags: api._unset_ir_flags,
             configure_entity: api._configure_entity,
-            configure_folder: api._configure_folder
+            configure_folder: api._configure_folder,
+            systems: api._systems
         }
     }
 
@@ -220,5 +223,12 @@ export class api {
                   html.find("input[name=folder-path-close]").val(path);
             }}).render(true);
         });
+    }
+
+    static _systems() {
+        if (SUPPORTED_SYSTEMS.some(i => game.system.id === i)) {console.log("Your system is supported by IR.")}
+        else {console.log("Your system is not (fully) supported by IR. To contribute please refer to ")}
+        console.log("Systems supported by IR:")
+        return SUPPORTED_SYSTEMS
     }
 }

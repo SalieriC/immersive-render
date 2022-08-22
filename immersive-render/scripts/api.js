@@ -226,8 +226,8 @@ export class api {
     }
 
     static _systems() {
-        if (SUPPORTED_SYSTEMS.some(i => game.system.id === i)) {console.log("Your system is supported by IR.")}
-        else {console.log("Your system is not (fully) supported by IR. To contribute please refer to ")}
+        if (SUPPORTED_SYSTEMS.some(i => game.system.id === i)) {console.log(`Your system (${game.system.id}) is supported by IR.`)}
+        else {console.log(`Your system (${game.system.id}) is not (fully) supported by IR. Please visit the repo at https://github.com/SalieriC/immersive-render and make a ticket for support. If your system works without issues on all entities please state that in your ticket. Thank you for your support.`)}
         console.log("Systems supported by IR:")
         return SUPPORTED_SYSTEMS
     }

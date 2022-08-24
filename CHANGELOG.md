@@ -6,8 +6,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [1.0.1] - 2022-08-21
+## [1.1.0] - 2022-08-24
 ☮️ Peace in the world, or the world in pieces. 🕊️
+## Added
+- Support for dnd5e, SWADE and Simple Worldbuilding (thanks @EsotericOdyssey for the latter).
+- Info dialogue that informs about system support. Will only be shown once to a GM.
+- There now is a (hopefully) easy way to set up support for other game systems.
+- New Translation Strings.
+## Fixed
+- Fixed a bug that used a wildcard folder if an exact audio file was given.
+- Fixed a bug that caused the chat message sound to play for the sender on core v10+.
+- Fixed deprecation warnings when sending a chat message on core v10+.
+- Prevent repetitive render sounds when editing sheets.
+
+## [1.0.1] - 2022-08-21
 ### Fixed
 - Chat message notification not playing.
 ### Changed

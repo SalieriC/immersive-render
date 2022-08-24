@@ -5,45 +5,51 @@ export function entity_hooks(renderJournalSheet, closeJournalSheet, renderActorS
     Hooks.on(renderJournalSheet, async (entitySheet, _, __) => {
         let entity = entitySheet.object
         let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
-        if (currOpenPath) {
+        if (currOpenPath && "immersiveRendered" in entitySheet === false) {
             ir.play_random_audio(currOpenPath, currVolume, false)
+            entitySheet.immersiveRendered = true
         }
     })
     Hooks.on(closeJournalSheet, async (entitySheet, _, __) => {
         let entity = entitySheet.object
         let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
-        if (currClosePath) {
+        if (currClosePath && "immersiveRendered" in entitySheet === true) {
             ir.play_random_audio(currClosePath, currVolume, false)
+            delete entitySheet.immersiveRendered
         }
     })
 
     Hooks.on(renderActorSheet, async (entitySheet) => { // 5e: renderActorSheet5e; SWADE: renderCharacterSheet
         let entity = entitySheet.object
         let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
-        if (currOpenPath) {
+        if (currOpenPath && "immersiveRendered" in entitySheet === false) {
             ir.play_random_audio(currOpenPath, currVolume, false)
+            entitySheet.immersiveRendered = true
         }
     })
     Hooks.on(closeActorSheet, async (entitySheet) => {
         let entity = entitySheet.object
         let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
-        if (currClosePath) {
+        if (currClosePath && "immersiveRendered" in entitySheet === true) {
             ir.play_random_audio(currClosePath, currVolume, false)
+            delete entitySheet.immersiveRendered
         }
     })
 
     Hooks.on(renderItemSheet, async (entitySheet) => {
         let entity = entitySheet.object
         let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
-        if (currOpenPath) {
+        if (currOpenPath && "immersiveRendered" in entitySheet === false) {
             ir.play_random_audio(currOpenPath, currVolume, false)
+            entitySheet.immersiveRendered = true
         }
     })
     Hooks.on(closeItemSheet, async (entitySheet) => {
         let entity = entitySheet.object
         let { currOpenPath, currClosePath, currVolume } = await ir.get_flags(entity)
-        if (currClosePath) {
+        if (currClosePath && "immersiveRendered" in entitySheet === true) {
             ir.play_random_audio(currClosePath, currVolume, false)
+            delete entitySheet.immersiveRendered
         }
     })
 

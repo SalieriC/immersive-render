@@ -6,7 +6,6 @@ If you want to support me you can do so on my Ko-fi:
 This is one way to show me that my module is actually used and well-received and also helps me out more than you can imagine.  
 
 ## Warning
-Immersive render uses a folder-based way to configure wildcard sounds. This means you select a folder instead of a single audio file (except for chat message notifications).  
 Every time the entity (Actor, Item or Journal in this case) is opened or closed a random audio file from this folder is selected to be played. **Only put very short audio files in the folders you select!** Once an audio file plays, it plays until it ends. 
 Also note that players will need to have the browse file permission in Foundry in order to hear sound effects. I'd like to change this in the future but I'm currently unsure how I can do this. One option are sockets but I want the audio files to be played when no GM is logged in as well...  
 I'm sorry if you only ever have one sound in multiple folders as a result. If you're a developer and know a better way, please create an issue or pull request.  
